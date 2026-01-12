@@ -3,13 +3,13 @@
 ![GitHub License](https://img.shields.io/github/license/NATroutter/egg-hytale?style=for-the-badge) ![GitHub Issues](https://img.shields.io/github/issues/NATroutter/egg-hytale?style=for-the-badge)
 ![GitHub Stars](https://img.shields.io/github/stars/NATroutter/egg-hytale?style=for-the-badge) ![GitHub Forks](https://img.shields.io/github/forks/NATroutter/egg-hytale?style=for-the-badge)
 
-A Pelican Panel egg for hosting Hytale game servers.
+Panel eggs for hosting Hytale game servers on both Pelican and Pterodactyl panels.
 
 ## Overview
 
-This egg provides an automated installation and startup configuration for Hytale servers on Pelican Panel. It handles downloading the Hytale server files, setting up the environment, and starting the server with customizable parameters.
+This egg provides an automated installation and startup configuration for Hytale servers. It handles downloading the Hytale server files, setting up the environment, and starting the server with customizable parameters.
 
-**Note**: While designed for Pelican Panel, this egg should work with Pterodactyl Panel as well, though it has not been tested on Pterodactyl.
+Both Pelican Panel and Pterodactyl Panel are fully supported with dedicated egg files for each platform.
 
 ## Features
 
@@ -23,13 +23,22 @@ This egg provides an automated installation and startup configuration for Hytale
 
 ## Installation
 
-1. Download the `egg-hytale.pelican.json` file from this repository
+### Pelican Panel
+
+1. Download the [egg-hytale.pelican.json](egg-hytale.pelican.json) file from this repository
 2. In your Pelican Panel, navigate to **Admin Panel** > **Eggs**
 3. Click **Import**
 4. Select the downloaded JSON file
 5. Configure the egg settings as needed
 
-For Pterodactyl Panel users, the process should be similar, though compatibility is untested.
+### Pterodactyl Panel
+
+1. Download the [egg-hytale.pterodactyl.json](egg-hytale.pterodactyl.json) file from this repository
+2. In your Pterodactyl Panel, navigate to **Admin Panel** > **Nests**
+3. Select or create a nest for the egg
+4. Click **Import Egg**
+5. Select the downloaded JSON file
+6. Configure the egg settings as needed
 
 ## Server Configuration
 
