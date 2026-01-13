@@ -64,7 +64,7 @@ The following options can be configured:
 
 ### First-Time Authentication
 
-During the first installation, the Hytale downloader will require authentication with your Hytale account. You'll see output similar to this in the console:
+During the first start, the Hytale downloader will require authentication with your Hytale account. You'll see output similar to this in the console:
 
 ```txt
 Please visit the following URL to authenticate:
