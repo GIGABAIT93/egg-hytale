@@ -21,11 +21,6 @@ echo " "
 detect_architecture
 setup_environment
 
-# Copy start.sh template to /home/container
-logger info "Copying start.sh template to /home/container..."
-cp -f /usr/local/bin/start.sh start.sh
-chmod 755 start.sh
-
 setup_backup_directory
 ensure_downloader
 
@@ -43,6 +38,11 @@ if [ -n "$OVERRIDE_SESSION_TOKEN" ] && [ -n "$OVERRIDE_IDENTITY_TOKEN" ]; then
     logger info "Using provided session and identity tokens..."
     SESSION_TOKEN="$OVERRIDE_SESSION_TOKEN"
     IDENTITY_TOKEN="$OVERRIDE_IDENTITY_TOKEN"
+
+    # Export the session tokens so they're available to start.sh
+    export SESSION_TOKEN
+    export IDENTITY_TOKEN
+
 else
     # Default to persistent authentication if not specified, this is needed for backwards combability
     if [ -z "$USE_PERSISTENT_AUTHENTICATION" ]; then
@@ -70,15 +70,21 @@ else
             # Perform full authentication if no valid cache exists
             perform_authentication
         fi
+
+        # Export the session tokens so they're available to start.sh
+        export SESSION_TOKEN
+        export IDENTITY_TOKEN
+
     fi
 fi
 
-# Export the session tokens so they're available to start.sh
-export SESSION_TOKEN
-export IDENTITY_TOKEN
-
 # Enforce file and folder permissions if enabled
 enforce_permissions
+
+# Copy start.sh template to /home/container
+logger info "Copying start.sh template to /home/container..."
+cp -f /usr/local/bin/start.sh start.sh
+chmod 755 start.sh
 
 logger info "Starting Hytale server..."
 
